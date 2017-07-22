@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="AddSubMulDivImplService" targetNamespace="http://webservice.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservice.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservice.com/" version="1.0" xmlns:tns="http://webservice.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="addition" type="tns:addition"/>
+
+  <xs:element name="additionResponse" type="tns:additionResponse"/>
+
+  <xs:element name="division" type="tns:division"/>
+
+  <xs:element name="divisionResponse" type="tns:divisionResponse"/>
+
+  <xs:element name="multiplication" type="tns:multiplication"/>
+
+  <xs:element name="multiplicationResponse" type="tns:multiplicationResponse"/>
+
+  <xs:element name="subtraction" type="tns:subtraction"/>
+
+  <xs:element name="subtractionResponse" type="tns:subtractionResponse"/>
+
+  <xs:complexType name="multiplication">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="multiplicationResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="division">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="divisionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="subtraction">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="subtractionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addition">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="additionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="divisionResponse">
+    <wsdl:part name="parameters" element="tns:divisionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="division">
+    <wsdl:part name="parameters" element="tns:division">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="additionResponse">
+    <wsdl:part name="parameters" element="tns:additionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="multiplication">
+    <wsdl:part name="parameters" element="tns:multiplication">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="subtractionResponse">
+    <wsdl:part name="parameters" element="tns:subtractionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="subtraction">
+    <wsdl:part name="parameters" element="tns:subtraction">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addition">
+    <wsdl:part name="parameters" element="tns:addition">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="multiplicationResponse">
+    <wsdl:part name="parameters" element="tns:multiplicationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IAddSubMulDiv">
+    <wsdl:operation name="multiplication">
+      <wsdl:input name="multiplication" message="tns:multiplication">
+    </wsdl:input>
+      <wsdl:output name="multiplicationResponse" message="tns:multiplicationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="division">
+      <wsdl:input name="division" message="tns:division">
+    </wsdl:input>
+      <wsdl:output name="divisionResponse" message="tns:divisionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subtraction">
+      <wsdl:input name="subtraction" message="tns:subtraction">
+    </wsdl:input>
+      <wsdl:output name="subtractionResponse" message="tns:subtractionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addition">
+      <wsdl:input name="addition" message="tns:addition">
+    </wsdl:input>
+      <wsdl:output name="additionResponse" message="tns:additionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AddSubMulDivImplServiceSoapBinding" type="tns:IAddSubMulDiv">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="multiplication">
+      <soap:operation soapAction="urn:Multiplication" style="document"/>
+      <wsdl:input name="multiplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="multiplicationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="division">
+      <soap:operation soapAction="urn:Division" style="document"/>
+      <wsdl:input name="division">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="divisionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subtraction">
+      <soap:operation soapAction="urn:Subtraction" style="document"/>
+      <wsdl:input name="subtraction">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="subtractionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addition">
+      <soap:operation soapAction="urn:Addition" style="document"/>
+      <wsdl:input name="addition">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="additionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AddSubMulDivImplService">
+    <wsdl:port name="AddSubMulDivImplPort" binding="tns:AddSubMulDivImplServiceSoapBinding">
+      <soap:address location="http://localhost:8181/AddSubMulDiv_Webservice/services/AddSubMulDivImplPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
